@@ -9,8 +9,28 @@
     outline: none;
     scroll-behavior: smooth;
     font-family: 'poppins',sans-serif;
+    
+}
+*::selection {
+    background-color: transparent;
+}
+
+*::-moz-selection {
+    background: transparent;
+}
+ 
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
 }
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 :root {
     --bg-color: #000;
@@ -379,7 +399,32 @@ color: var(--bg-color);
     
     color: var(--bg-color);
 }
+.gradient-animation{
+    --color-light-1: rgb(221, 226, 147);
+    --color-light-2: #6bc5f8;
+    --color-light-3: rgb(236, 107, 248);
+    --color-light-4: rgb(155, 162, 228);
+    background: linear-gradient(-45deg,var(--color-light-1),var(--color-light-2),var(--color-light-3),var(--color-light-4),var(--color-light-1),var(--color-light-2),var(--color-light-3),var(--color-light-4));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    -webkit-animation: gradient 6s ease infinite;
+    animation: gradient 6s ease infinite;
+}
 
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    
+    100% {
+        background-position: 0 50%;
+    }
+}
 .jello:hover{
     background-clip: text;
     -webkit-background-clip: text;
