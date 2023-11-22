@@ -242,6 +242,9 @@ section{
     background-size : 50% auto;
     background-position: right;
 }
+.home-img{
+    animation: floatImage 4s ease-in-out infinite;
+}
 
 .home-content{
     max-width: 60rem;
@@ -474,12 +477,12 @@ color: var(--bg-color);
     background: transparent;
     /* border: 2px solid ; */
     transition: 3s;
-         
 }
 .home-imghover:hover{
     background:var(--bg-color);
     opacity: .8;
 }
+
 
 .about{
     display: flex;
@@ -514,8 +517,10 @@ span{
     width: 90%;
     border-radius: 50%;
     border: .2rem solid var(--main-color);
+   
 
 }
+
 .about-img .circle-spin{
     position: absolute;
     top: 50%;
@@ -545,9 +550,11 @@ span{
     margin: 2rem 0 3rem;
 
 }
-.btn-box.btns{
-    display: inline;
-    width: 15rem;
+.btns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-box.btns a::before{
@@ -739,8 +746,72 @@ span{
   .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
     width: 60%;
   }
+  .portfolio h2{
+    margin-bottom:4rem ;
+  }
+  .portfolio-container{
+    display: grid;
+    grid-template-columns:repeat(3,1fr) ;
+    align-items: center;
+    gap: 2.5rem;
 
+  }
+ .portfolio-container .portfolio-box{
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    overflow: hidden;
+    display: flex;
+    
+ }
+ .portfolio-box img{
+    width: 100%;
+    transition: .5s ease;
+ }
+ .portfolio-box:hover img{
+    transform:scale(1.1) ;
+ }
+ .portfolio-box .portfolio-layer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(228, 35, 35, 0.1),var(--main-color));
+    display: flex;
 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform:translateY(100%);
+    transition: .5s ease;
+ }
+ .portfolio-box:hover .portfolio-layer{
+    transform:translateY(0);
+
+ }
+.portfolio-layer h4{
+    font-size: 3rem;
+}
+.portfolio-layer p{
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+}
+.portfolio-layer a{
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     width: 5rem;
+     height: 5rem;
+     background: var(--text-color);
+     border-radius: 50%;
+}
+.portfolio-layer a i{
+    font-size: 2rem;
+    color: var(--bg-color);
+}
   .contact{
     min-height: auto;
     padding-bottom: 7rem;
@@ -930,6 +1001,9 @@ section:nth-child(odd) .animate.scroll{
     .home{
         padding: 0 4%;
     }
+    .portfolio{
+        padding-bottom:7rem ;
+    }
     .footer{
         padding: 2rem 4%;
     }
@@ -1000,7 +1074,18 @@ section:nth-child(odd) .animate.scroll{
     .home{
         background-image: none;
     }
+    .portfolio h2{
+        margin-bottom:3rem;
+    }
+    .portfolio-container{
+        grid-template-columns: repeat(2,1fr);
+    }
 
+}
+@media (max-width:617px){
+    .portfolio-container{
+        grid-template-columns: 1fr;
+    }
 }
 
 @media(max-width:520px){
