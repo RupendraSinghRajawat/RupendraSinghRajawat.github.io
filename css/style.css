@@ -31,7 +31,18 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a10;
+}
+::-webkit-scrollbar-thumb{
+   background-color: #a54bff;
+   border-radius: 2px;
+   border: 2px solid #d6acff;
 
+}
 :root {
     --bg-color: #000;
     --second-bg-color: #000;
@@ -132,6 +143,7 @@ noscript{
     justify-content: center;
     z-index: 2;
     transition-duration: .3s;
+    opacity: 0;
   }
   
   .speaker svg {
@@ -145,7 +157,7 @@ noscript{
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 1;
     z-index: 3;
     transition-duration: .3s;
     cursor: url('click.png')10 12,move;
@@ -156,12 +168,12 @@ noscript{
   }
   
   #checkboxInput:checked +.toggleSwitch .speaker {
-    opacity: 0;
+    opacity: 1;
     transition-duration: .3s;
   }
   
   #checkboxInput:checked +.toggleSwitch .mute-speaker {
-    opacity: 1;
+    opacity: 0;
     transition-duration: .3s;
   }
   
@@ -733,18 +745,18 @@ span{
   }
 
   .skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span{
-    width: 95%;
+    width: 67%;
   }
    
   .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span{
-    width: 67%;
+    width: 85%;
   }
   .skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span{
-    width: 85%;
+    width: 70%;
   }
 
   .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
-    width: 60%;
+    width: 73%;
   }
   .portfolio h2{
     margin-bottom:4rem ;
@@ -889,38 +901,102 @@ span{
 
   .footer{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
+    height: 400px;
     padding: 2rem 9%;
     background: var(--second-bg-color);
+    border-top: 2px solid rgb(35, 35, 35);
   }
 
 .footer-text,
 .footer-iconTop{
     position: relative;
 }
+.footer-quote{
 
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    
+}
+.coding-screen{
+    width: 200px;
+    opacity: 0.4;
+}
+.quote-wrapper{
+    display: flex;
+    gap: 20px;
+    color: gray;
+}
+.quote-wrapper p{
+    color: gray;
+    font-family: fira code;
+    text-transform: uppercase;
+
+}
+.shine{
+    animation: shine 1.5s alternate-reverse infinite;
+}
+@keyframes shine {
+    0%{
+        color: white;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+        margin-right: 10px;
+    }
+    /* 50%{
+        color: white;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+        margin-right: 10px;
+    } */
+    100%{
+        text-shadow: 0 0 10px #ffffff00, 0 0 20px #ffffff00, 0 0 40px #ffffff00;
+    }
+}
+.footer-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    align-items: center;
+}
 .education,
 .skills{
     min-height: 100vh;
 }
 .footer-text p{
     font-size: 1.6rem;
+    color: rgb(163, 163, 163);
 }
 .footer-iconTop a{
+    width: 70px;
+    height: 70px;
     position: relative;
-    display: inline-flex;
+    display:flex;
     justify-content: center;
     align-items: center;
     padding: .8rem;
-    background: var(--main-color);
-    border: .2rem solid var(--main-color);
+    /* background: var(--main-color); */
+    /* border: .2rem solid var(--main-color); */
     border-radius: .6rem;
     z-index: 1;
     overflow: hidden;
+    
 }
-
+.footer-iconTop{
+    transition-duration: .3s;
+}
+.footer-iconTop:hover{
+    transform: translateY(-10px);
+}
 .footer-iconTop a::before{
     content:'';
     position: absolute;
@@ -937,14 +1013,8 @@ span{
     width: 100%;
 
 }
-.footer-iconTop a i {
-    font-size: 2.4rem;
-    color: var(--bg-color);
-    transition: .5s;
-}
-
-.footer-iconTop a:hover i{
-    color: var(--main-color);
+.rocketIcon{
+    height: 100%;
 }
 /* Animation reload and scroll */
 .animate{
@@ -1110,6 +1180,23 @@ section:nth-child(odd) .animate.scroll{
     .logo img{
         height:55px ;
     }
+    .quote-wrapper {
+        gap: 13px;
+    }
+    .footer-bottom {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column-reverse;
+    }
+    .footer-text p{
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .coding-screen{
+        width: 150px;
+    }
 }
 
 @media(max-width:462px){
@@ -1122,16 +1209,25 @@ section:nth-child(odd) .animate.scroll{
     .contact form .input-box .input-field{
         width: 100%;
     }
-    .footer{
-        flex-direction: column-reverse;
-    }
+  
     .footer p{
-        margin-top: 2rem;
         text-align: center;
     }
+    .footer-quote {
+        font-size: 1.7rem;
+ 
+    }
+   
 
 }
-
+@media(max-width:399px){
+    .footer-quote {
+        font-size: 1.5rem;
+    }
+    .footer-text p{
+        font-size: 1.4rem;
+    }
+}
 @media(max-width:371px){
     .home{
         justify-content: center;
@@ -1145,6 +1241,13 @@ section:nth-child(odd) .animate.scroll{
     .home-content h1{
         font-size: 5rem;
     }
+    .footer-quote {
+        font-size: 1.3rem;
+    }
+    .quote-wrapper {
+        gap: 8px;
+    }
+    
 }
 /* keyframes animation */
 

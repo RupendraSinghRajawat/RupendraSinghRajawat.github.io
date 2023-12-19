@@ -10,11 +10,11 @@ menuIcon.onclick=()=>{
 var audio = document.getElementById("audioPlayer");
 function playpause() {
     if (document.getElementById("checkboxInput").checked == false) {
-      audio.pause();
+      audio.play();
      }
   
    else{
-       audio.play();
+       audio.pause();
    }
     }
 
