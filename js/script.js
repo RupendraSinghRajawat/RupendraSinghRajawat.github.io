@@ -69,3 +69,51 @@ let footer = document.querySelector('footer');
 footer.classList.toggle('show-animate', this.innerHeight +this.scrollY >= document.scrollingElement.scrollHeight);
 }
 
+let Pupils = document.getElementsByClassName('footer-pupil');
+let pupilsArr = Array.from(Pupils);
+
+let pupilStartPoint = -10;
+let pupilRangeX = 20;
+let pupilRangeY = 15;
+
+// mouse X 
+let mouseXStartPoint = 0;
+let mouseXEndPoint = window.innerWidth;
+let currentXPosition = 0;
+let fracXValue = 0;
+
+
+// mouse Y position 
+let mouseYEndPoint = window.innerHeight;
+let currentYPosition = 0;
+let fracYValue = 0;
+
+let mouseXRange = mouseXEndPoint - mouseXStartPoint;
+
+const mouseMove = (event) => {
+    currentXPosition = event.clientX - mouseXStartPoint;
+    fracXValue = currentXPosition / mouseXRange;
+
+    currentYPosition = event.clientY;
+    fracYValue = currentYPosition / mouseYEndPoint;
+ 
+    // footer
+    let pupilXCurrrentPosition = pupilStartPoint + (fracXValue * pupilRangeX);
+    let pupilYCurrrentPosition = pupilStartPoint + (fracYValue * pupilRangeY);
+
+    // footer
+    pupilsArr.forEach((curPupil) => {
+      curPupil.style.transform= `translate(${pupilXCurrrentPosition}px, ${pupilYCurrrentPosition}px)`;
+  })
+
+}
+
+const windowResize = (event) => {
+    mouseXEndPoint = window.innerWidth;
+    mouseYEndPoint = window.innerHeight;
+    mouseXRange = mouseXEndPoint - mouseXStartPoint;
+}
+
+
+window.addEventListener('mousemove', mouseMove);
+window.addEventListener('resize', windowResize);

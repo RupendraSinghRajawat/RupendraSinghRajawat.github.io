@@ -900,27 +900,54 @@ span{
   }
 
   .footer{
+    position: relative;
+    background: var(--second-bg-color);
+    overflow: hidden;
+
+  }
+  .footer-background{
+
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1;
+}
+
+  .footer-blob{
+    width: 100%;
+    height: 200px;
+    background-color:var(--main-color);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.7;
+}
+.footer-foreground{
+    position: absolute;
+    top: 0;
+    width:100%;
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    height: 400px;
-    padding: 2rem 9%;
-    background: var(--second-bg-color);
+    justify-content: flex-end;
+    align-items: center;
+    height: 90vh;
+    /* padding: 10rem 9%; */
     border-top: 2px solid rgb(35, 35, 35);
-  }
-
+}
 .footer-text,
 .footer-iconTop{
     position: relative;
+
 }
 .footer-quote{
-
+ 
     text-align: center;
     width: 100%;
     font-size: 2rem;
-    height: 80%;
+    height: fit-content;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -965,8 +992,9 @@ span{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    height: 20%;
     align-items: center;
+   background-color: black;
+   padding: 20px 40px;
 }
 .education,
 .skills{
@@ -1008,7 +1036,74 @@ span{
     z-index: -1;
     transition: .5s;
 }
+.footer-avatar-container{
+    width: 500px;
+    /* background-color: red; */
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
 
+.footer-avatar-img{
+    width: 100%;
+    z-index:2;
+    /* opacity: .4; */
+}
+.footer-avatar-face{
+    position: absolute;
+    width: 100%;
+    height: 82%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-right:32px;
+}
+.footer-avatar-eye{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(223, 210, 210);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.footer-pupil{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    border: 5px solid rgb(65, 51, 51);
+    filter: blur(0.6px);
+}
+
+.footer-right-eye{
+    /* box-shadow: -10px -15px 5px rgba(0, 0, 0, 0.349) inset; */
+    position: relative;
+}
+.footer-left-eye{
+    /* box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.233) inset,
+    10px 10px 5px rgba(41, 33, 33, 0.644) inset; */
+    position: relative;
+    margin-bottom: 10px;
+
+}
+.footer-avatar-eye::before{
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgba(214, 214, 214, 0.726);
+    z-index: 2;
+    filter: blur(.2px);
+    ri: 15px;
+    transform: rotate(45deg);
+}
 .footer-iconTop a:hover::before{
     width: 100%;
 
@@ -1073,9 +1168,6 @@ section:nth-child(odd) .animate.scroll{
     }
     .portfolio{
         padding-bottom:7rem ;
-    }
-    .footer{
-        padding: 2rem 4%;
     }
 }
 
