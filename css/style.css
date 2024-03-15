@@ -930,7 +930,7 @@ span{
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-end; 
     align-items: center;
     height: 90vh;
     /* padding: 10rem 9%; */
@@ -939,26 +939,25 @@ span{
 .footer-text,
 .footer-iconTop{
     position: relative;
-
 }
 .footer-quote{
- 
     text-align: center;
     width: 100%;
     font-size: 2rem;
     height: fit-content;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 50px;
-    
+    margin-bottom: 70px;
 }
+
 .coding-screen{
     width: 200px;
     opacity: 0.4;
 }
+
 .quote-wrapper{
     display: flex;
     gap: 20px;
@@ -968,11 +967,12 @@ span{
     color: gray;
     font-family: fira code;
     text-transform: uppercase;
-
 }
+
 .shine{
     animation: shine 1.5s alternate-reverse infinite;
 }
+
 @keyframes shine {
     0%{
         color: white;
@@ -993,8 +993,8 @@ span{
     display: flex;
     justify-content: space-between;
     align-items: center;
-   background-color: black;
-   padding: 20px 40px;
+    background-color: black;
+    padding: 20px 40px;
 }
 .education,
 .skills{
@@ -1037,7 +1037,7 @@ span{
     transition: .5s;
 }
 .footer-avatar-container{
-    width: 500px;
+    width: 300px;
     /* background-color: red; */
     margin-top: 20px;
     position: relative;
@@ -1054,13 +1054,14 @@ span{
 .footer-avatar-face{
     position: absolute;
     width: 100%;
-    height: 82%;
+    height: 100%;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding-right:32px;
+    padding-left:20px;
+    padding-bottom: 52px;
 }
 .footer-avatar-eye{
     width: 50px;
@@ -1070,8 +1071,8 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
+
 .footer-pupil{
     width: 20px;
     height: 20px;
@@ -1082,12 +1083,13 @@ span{
 }
 
 .footer-right-eye{
-    /* box-shadow: -10px -15px 5px rgba(0, 0, 0, 0.349) inset; */
+    box-shadow: 15px 15px 8px rgba(0, 0, 0, 0.233) inset,
+    5px 5px 10px rgba(41, 33, 33, 0.644) inset;
+    
     position: relative;
 }
 .footer-left-eye{
-    /* box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.233) inset,
-    10px 10px 5px rgba(41, 33, 33, 0.644) inset; */
+    box-shadow: -15px -10px 10px rgba(0, 0, 0, 0.349) inset;
     position: relative;
     margin-bottom: 10px;
 
@@ -1374,5 +1376,28 @@ section:nth-child(odd) .animate.scroll{
 @keyframes showRight{
     100%{
         width:0;
+    }
+}
+
+
+/* height media query */
+
+@media(max-height:740px){
+
+    .footer-background,.footer-foreground{
+        height: 100vh;
+    }
+}
+@media(max-height:679px){
+
+    .footer-background,.footer-foreground{
+        height: 110vh;
+    }
+}
+
+@media(max-height:568px){
+
+    .footer-background,.footer-foreground{
+        height: 130vh;
     }
 }
