@@ -1316,7 +1316,7 @@ section:nth-child(odd) .animate.scroll{
 }
 @media(max-width:399px){
     .footer-quote {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
     .footer-text p{
         font-size: 1.4rem;
